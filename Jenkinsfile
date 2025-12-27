@@ -32,8 +32,8 @@ pipeline{
             steps {
                 script{
                     
-                    sh "mkdir -p /opt/war-backup/${params.ENV}"
-                    sh "cp target/*.war /opt/war-backup/${params.ENV}/app_${BUILD_NUMBER}.war"
+                    sh "mkdir -p ${backupFolder}"
+                    sh "cp target/*.war ${backupFolder}/app_${BUILD_NUMBER}.war"
                 }
             }
         }
