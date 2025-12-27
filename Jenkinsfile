@@ -1,38 +1,13 @@
-pipeline {
-  agent any
-
-  stages {
-   
-   stage('clone project') {
-      steps {
-           git branch:'master' , url:'https://github.com/PraveenKuberABC/Amazon-Ecom.git'
-       }
-   }
-
-   stage('clean') {
-      steps {
-           sh 'mvn clean'
-       }
-   }
-
-   stage('compile') {
-      steps {
-           sh 'mvn compile'
-       }
-   }
-
-   stage('test') {
-      steps {
-           sh 'mvn test'
-       }
-   }
-
-   stage('build') {
-      steps {
-           sh 'mvn clean install'
-       }
-   }
-   
-}
-
+pipeline{
+    agent any
+    triggers{
+        githubPush()
+    }
+    stages{
+        stage('code checkout'){
+            steps{
+                git branch: 'master', url:'https://github.com/sgiridhar91/Amazon-demo.git'
+            }
+        }
+    }
 }
