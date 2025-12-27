@@ -31,9 +31,9 @@ pipeline{
         stage('backup'){
             steps {
                 script{
-                    def envFolder = "/opt/war-backup/${params.ENV}"
-                    sh 'mkdir -p /opt/war-backup/${params.ENV}'
-                    sh 'cp target/*.war /opt/war-backup/${params.ENV}/app_${BUILD_NUMBER}.war'
+                    
+                    sh "mkdir -p /opt/war-backup/${params.ENV}"
+                    sh "cp target/*.war /opt/war-backup/${params.ENV}/app_${BUILD_NUMBER}.war"
                 }
             }
         }
