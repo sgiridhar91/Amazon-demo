@@ -31,8 +31,8 @@ pipeline{
         stage('backup'){
             steps {
                 script{
-                    
-                    sh "mkdir -p /home/giridhar/jenkinsbackup/${backupFolder}"
+                    def backupFolder = "/home/giridhar/jenkinsbackup/${params.ENV}"
+                    sh "mkdir -p ${backupFolder}"
                     sh "cp target/*.war ${backupFolder}/app_${BUILD_NUMBER}.war"
                 }
             }
