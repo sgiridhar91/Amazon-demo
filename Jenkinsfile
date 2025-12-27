@@ -32,7 +32,7 @@ pipeline{
             steps {
                 script{
                     
-                    sh "mkdir -p ${backupFolder}"
+                    sh "mkdir -p /home/giridhar/jenkinsbackup/${backupFolder}"
                     sh "cp target/*.war ${backupFolder}/app_${BUILD_NUMBER}.war"
                 }
             }
