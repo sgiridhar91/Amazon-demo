@@ -27,7 +27,8 @@ stages:
   - job: MavenPackageAndPublishArtifacts
     displayName: Maven Package and Publish Artifacts
     pool:
-      vmImage: $(vmImageName)
+      name: 'agent-giri'
+      
 
     steps:
     - task: Maven@4
@@ -61,7 +62,7 @@ stages:
     displayName: Deploy Linux Web App
     environment: $(environmentName)
     pool:
-      vmImage: $(vmImageName)
+      name: 'agent-giri'
     strategy:
       runOnce:
         deploy:
